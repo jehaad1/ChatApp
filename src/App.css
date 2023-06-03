@@ -1,0 +1,375 @@
+@font-face {
+    font-family: "Readex Pro Normal";
+    src: url("/src/assets/ReadexPro-Light.ttf");
+}
+  
+@font-face {
+    font-family: "Readex Pro Medium";
+    src: url("/src/assets/ReadexPro-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "Readex Pro Bold";
+    src: url("/src/assets/ReadexPro-Bold.ttf");
+  }
+  
+:root {
+    --theme-color: #615355;
+    --theme-color2: #f3eee7;
+    --theme-color3: #dfd8cb;
+    --theme-color4: #c9c0b4;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--theme-color);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+* {
+    font-family: "Readex Pro Normal";
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none;
+    font-weight: normal;
+}
+
+.App {
+    position: relative;
+    height: 100vh;
+    max-width: 600px;
+    background: var(--theme-color2);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Toast {
+    background: var(--theme-color) !important;
+    color: var(--theme-color2) !important;
+    box-shadow: 0 3px 6px -1px var(--theme-color), 0 10px 36px -4px var(--theme-color4) !important;
+}
+
+.Toast button {
+    color: var(--theme-color2) !important;
+    opacity: 0.8;
+    font-size: 18px;
+}
+
+.LoginPopup {
+    background: var(--theme-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+    color: var(--theme-color2);
+}
+
+.LoginPopup img.Logo {
+    height: 125px;
+    margin: -10px 0 10px;
+}
+
+.LoginPopup h1,
+.LoginPopup h4 {
+    position: relative;
+    font-family: "Readex Pro Medium";
+    bottom: 10px;
+    margin: 0;
+}
+
+.LoginPopup h1 {
+    font-family: "Readex Pro Bold";
+}
+
+.GoogleButton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 184px;
+    height: 42px;
+    background: var(--theme-color3);
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+    transition: all 150ms;
+    scale: 1.2;
+    margin: 10px 20px;
+}
+
+.IconWrapper {
+    position: relative;
+    margin-left: 1.5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background: var(--theme-color2);
+}
+
+.GoogleIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 28px;
+    height: 28px;
+}
+
+.GoogleButton:hover {
+    box-shadow: 0 0 6px rgba(0, 0, 0, .25);
+}
+
+.GoogleButton p {
+    position: absolute;
+    margin: 0;
+    left: 47.5px;
+    color: var(--theme-color);
+    font-family: "Readex Pro Bold";
+    font-size: 14px;
+}
+
+.LogoutButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background: var(--theme-color2);
+    color: var(--theme-color);
+    font-family: "Readex Pro Medium";
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 150ms;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+}
+
+.LogoutButton i {
+    margin-left: 10px;
+}
+
+.LogoutButton:hover {
+    box-shadow: 0 0 6px rgba(0, 0, 0, .25);
+}
+
+.Chat {
+    padding: 10px;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.Message {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: var(--theme-color2);
+    background: var(--theme-color);
+    border-radius: 5px;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 300px;
+    padding: 5px 10px;
+    transition: all 150ms, opacity 200ms 50ms;
+    gap: 10px;
+    opacity: 0;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+}
+
+.Message.Visible {
+    opacity: 1;
+}
+
+.Message:not(.Other):hover {
+    box-shadow: 0 0 6px rgba(0, 0, 0, .25);
+}
+
+.Other {
+    margin-left: auto;
+}
+
+.Message .Profile {
+    display: flex;
+    gap: 5px;
+}
+
+.Message.Other .Profile {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5px;
+}
+
+.Message .Profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: solid var(--theme-color2) 2px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Message.Other .Profile img {
+    border: solid var(--theme-color) 2px;
+}
+
+.Message .Profile h1 {
+    font-size: 1rem;
+    font-family: "Readex Pro Medium";
+}
+
+.Message .Content {
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+.Message .EditTextarea textarea {
+    background: var(--theme-color2);
+    color: var(--theme-color);
+    padding: 0 2px;
+    margin: 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    max-width: 300px;
+    outline: none;
+}
+
+.Message .EditTextarea textarea::-webkit-scrollbar {
+    width: 0;
+}
+
+.Message .MessageActions {
+    display: none;
+    width: fit-content;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--theme-color2);
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 1.3rem;
+    gap: 10px;
+}
+
+.Message:hover .MessageActions {
+    display: flex;
+}
+
+.MessageContainer {
+    display: flex;
+    background: var(--theme-color);
+    width: 100%;
+    gap: 6px;
+    height: 80px;
+    align-items: center;
+}
+
+.MessageContainer textarea {
+    background: var(--theme-color2);
+    color: var(--theme-color);
+    padding: 0 5px;
+    margin: 0;
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    font-size: 20px;
+    font-family: "Readex Pro Medium";
+}
+
+.MessageContainer button {
+    background: var(--theme-color2);
+    color: var(--theme-color);
+    font-family: "Readex Pro Bold";
+    height: 60px;
+    width: 60px;
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.MessageContainer button:hover {
+    opacity: 0.95;
+}
+
+.Hide {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--theme-color3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--theme-color4);
+}
+
+::-webkit-Textarea-placeholder {
+    color: var(--theme-color);
+}
+
+:-ms-Textarea-placeholder {
+    color: var(--theme-color);
+}
+
+::placeholder {
+    color: var(--theme-color);
+}
+
+@media screen and (max-width: 940px) {
+    .App.LoggedIn {
+        height: calc(100vh - 60px);
+    }
+    header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        height: 60px;
+        width: 100%;
+        background: var(--theme-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .LogoutButton {
+        left: 50%;
+        translate: -50%;
+    }
+    #Root {
+        padding:0 10px;
+    }
+    .App {
+        padding-top: 60px;
+    }
+     ::-webkit-scrollbar {
+        width: 0;
+    }
+}
