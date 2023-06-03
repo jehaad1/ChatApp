@@ -8,13 +8,7 @@ import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD6WEfAIBhBJbwiBjx-hug3TL8Wg4WA7Z0",
-  authDomain: "chatapp-21ff3.firebaseapp.com",
-  projectId: "chatapp-21ff3",
-  storageBucket: "chatapp-21ff3.appspot.com",
-  messagingSenderId: "388229594284",
-  appId: "1:388229594284:web:0fbaeefeb894c97a87b309",
-  measurementId: "G-K97R5JYDF8"
+//   Your Firebase Config...
 };
 
 const app = initializeApp(firebaseConfig);
