@@ -4,5 +4,5 @@
   <br>
   Simple ChatApp Using Vite, Solid.js, and Firebase.
   
-  <a href="https://chat.jehaad.com">See The Chat System In Action</a>
+  <a href="https://chat.jehaad.com">View The Online Chat System Demo</a>
 </div>
